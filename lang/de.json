@@ -1,0 +1,28 @@
+﻿{
+
+    "Data": "Daten",
+    "Groups": "Gruppen",
+    "Library": "Bibliothek",
+    "Log Out": "Abmelden",
+    "Messages": "Nachrichten",
+    "Settings": "Einstellungen",
+
+    "Development": "Entwicklung",
+
+    "Auto advance data entry": "Auto Voraus Dateneingabe",
+    "Automatic": "Automatische",
+    "Change Log": "Änderung der Registrierung",
+    "Clear info": "Klar info",
+    "Check if Online": "Prüfen Sie, ob Online",
+    "Data Queue": "Daten Queue",
+    "Font Size": "Schriftgröße",
+    "go to next question after answer": "zur nächsten Frage nach der Antwort des",
+    "Large": "Große",
+    "Mailbox": "Briefkasten",
+    "Phone": "telefonieren",
+    "Profile": "Profil",
+    "show internal debug values": "zeigen internen Debug-Werte",
+    "Small": "wenig",
+    "Sync Freq": "Synchronisieren Freq"
+
+}

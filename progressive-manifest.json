@@ -1,0 +1,22 @@
+{
+  "name": "VIPS Mobile",
+  "short_name": "VIPS Mobile",
+  "icons": [
+    {
+      "src": "resources/icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "resources/icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#054059",
+  "background_color": "#054059",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "index.html"
+}

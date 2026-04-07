@@ -1,0 +1,675 @@
+// The following two lines import the default Sencha Touch theme. If you are building
+// a new theme, remove them and the add your own CSS on top of the base CSS (which
+// is already included in your app.json file).
+$loading-spinner-color: false !default;
+
+@if not $loading-spinner-color {
+    $loading-spinner-color: #FFFFFF;
+}
+
+$page-bg-color: #fff !default;
+$list-bg-color: #fff !default;
+
+@import 'sencha-touch/default';
+
+@import 'sencha-touch/default/all';
+@import 'icropper';
+
+$font-family: sans-serif !default;
+
+@include icon-font('mobile', inline-font-files('pictos/mobile.woff', woff, 'pictos/mobile.ttf', ttf, 'pictos/mobile.svg', svg));
+@include icon('chat', 'J', 'mobile');
+@include icon('power_on','+','mobile'); //!
+@include icon('Attachment-png','8','mobile');
+@include icon('Voice-png','"','mobile');
+@include icon('Video-png','#','mobile');
+@include icon('Memo-png','$','mobile');
+@include icon('Sent-png','A','mobile');
+@include icon('SMS-png','%','mobile');
+@include icon('Photo-png','&','mobile');
+@include icon('photo','&','mobile');
+@include icon('share',"'",'mobile');
+@include icon('arrow_down','B','mobile');
+@include icon('arrow_right','A','mobile');
+@include icon('arrow_left','C','mobile');
+@include icon('arrow_up','D','mobile');
+@include icon('delete_black1','(','mobile');
+@include icon('backspace','(','mobile');
+@include icon('book',')','mobile');
+@include icon('bookmarks','>','mobile');
+@include icon('calendar','*','mobile');
+@include icon('exit','+','mobile');
+@include icon('pdf_file',',','mobile');
+@include icon('word_file','-','mobile');
+@include icon('excel_file','.','mobile');
+@include icon('report','/','mobile');
+@include icon('contacts','0','mobile');
+@include icon('shop1','1','mobile');
+@include icon('folder-png','@','mobile');
+@include icon('doc-png','?','mobile');
+@include icon('play1','2','mobile');
+@include icon('pause','3','mobile');
+@include icon('stop','4','mobile');
+@include icon('delete','5','mobile');
+@include icon('download','6','mobile');
+@include icon('upload','7','mobile');
+@include icon('attachment','8','mobile');
+@include icon('help',':','mobile');
+@include icon('list',';','mobile');
+@include icon('phone','<','mobile');
+@include icon('refresh','=','mobile');
+@include icon('resize','H','mobile');
+@include icon('settings','G','mobile');
+@include icon('team','0','mobile');
+
+@include icon-font('pictos', inline-font-files('pictos/pictos-web.woff', woff, 'pictos/pictos-web.ttf', ttf, 'pictos/pictos-web.svg', svg));
+@include icon('radio','L','pictos');
+@include icon('heart','k','pictos');
+@include icon('Saved','k','pictos');
+@include icon('forward','R','pictos');
+@include icon('photo','v','pictos');
+@include icon('doc_send','W','pictos');
+@include icon('compose','W','pictos');
+
+@include icon('pie-chart',"\f200",'Font Awesome 6 Free');
+
+// default colours
+$testing-color: aqua;
+
+$answered-color: false !default;
+
+@if not $answered-color {
+    $answered-color: complement($base-color);
+}
+
+$alert-color: false !default;
+
+@if not $alert-color {
+    $alert-color: complement($base-color);
+}
+
+$active-color: false !default;
+
+@if not $active-color {
+    $active-color: complement($base-color);
+}
+
+$login-logo: false !default;
+
+@if not $login-logo {
+    $login-logo: '../../resources/images/VIPS_Logo_not3D.gif';
+}
+
+$watermark-image: false !default;
+
+@if not $watermark-image {
+    $watermark-image: none;
+}
+
+
+.reply::before {
+    transform: rotateY(180deg);
+}
+
+.answered {
+    color: $answered-color;
+}
+
+.unanswered {
+    color: darken($base-color, 50%);
+}
+
+.debuginfo {
+    font-size: 70%;
+    color: mix($base-color, $alert-color, 25%);
+}
+
+.validation {
+    font-size: 90%;
+}
+
+.warning {
+    color: mix($alert-color, #ffff00);
+}
+
+.error {
+    color: $alert-color;
+}
+
+.password input {
+    -webkit-text-security: disc;
+}
+
+.sitelabel {
+    display: block;
+    color: $testing-color;
+    font-size: 160%;
+    -webkit-transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.login_logo {
+    background-image: url($login-logo);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+    font-size: 0;
+}
+
+.indexvalue {
+    width: 100%;
+    font-size: 80%;
+    padding-left: 1.2em;
+}
+
+.Heard > div:first-child::before,
+.Unheard > div:first-child::before,
+.Saved > div:first-child::before,
+.Skipped > div:first-child::before,
+.Deleted > div:first-child::before {
+    color: $active-color;
+    font-size: xx-large;
+    content: "\00a0\00a0";
+}
+
+.Unheard {
+    font-weight: 900;
+}
+
+.Unheard > div:first-child::before {
+    content: "\2022";
+}
+// properties for thumbnails shown on list menus items
+.listthumb, .librarylistthumb {
+    display: block;
+    margin: 0em 0.5em 0em 0em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: $active-color;
+    -webkit-mask-size: cover;
+}
+
+.librarylistthumb {
+    margin: auto;
+    background-color: transparent;
+    background-position: center center;
+}
+
+.x-item-selected .listthumb {
+    //background-color: #fff;
+}
+
+.indexvalue {
+    width: 100%;
+    font-size: 80%;
+    padding-left: 1.2em;
+}
+
+$button-radius: false !default;
+
+@if not $button-radius {
+    $button-radius: 0.4em;
+}
+
+.indexsave {
+    //@include toolbar-button( $confirm-color, $base-gradient );
+    -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 0.1em 0;
+    -webkit-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-border-radius: $button-radius;
+    border-radius: $button-radius;
+    display: -webkit-box;
+    display: box;
+    -webkit-box-align: center;
+    min-height: 1.8em !important;
+    padding: .3em .6em;
+    position: relative;
+    overflow: hidden;
+}
+
+$list-bg-color: false !default;
+
+@if not $list-bg-color {
+    $list-bg-color: #ffffff;
+}
+// Message classes
+.msg-body, .label-body {
+    -webkit-border-radius: 8px;
+    background-color: lighten($list-bg-color, 50%);
+    margin: .4em 0;
+}
+
+.label-body {
+    font-size: 100%;
+    background-color: lighten($list-bg-color, 50%);
+}
+
+$confirm-color: false !default;
+
+@if not $confirm-color {
+    $confirm-color: $alert-color;
+}
+
+.msg-body-reply {
+    border-left: 2px solid;
+    border-color: $confirm-color;
+}
+
+.msg-info {
+    width: 2.7em;
+    padding-right: 0;
+}
+
+.msg-header {
+    -webkit-box-flex: 1;
+    margin-left: .6em;
+    overflow: hidden;
+}
+
+.msg-time {
+    position: absolute;
+    font-size: small;
+    padding: 0 2em;
+    width: 100%;
+    display: block;
+    text-align: right;
+}
+
+
+.DBTableValue {
+    font-size: 80%;
+    display: block;
+    margin-top: -.5em;
+    float: right;
+    width: 10em;
+}
+// --- Margins ---
+.margin5 {
+    margin: .4em;
+}
+
+.margin10 {
+    margin: .8em;
+}
+// library thumbs
+.doc-png {
+    @extend .listthumb;
+    -webkit-mask-image: url('../images/sprites/document.png');
+}
+
+.folder-png {
+    @extend .listthumb;
+    -webkit-mask-image: url('../images/sprites/folder.png');
+}
+
+
+.right-chevron {
+    @extend .listthumb;
+    -webkit-mask-image: url('../images/sprites/rightChevron.png');
+}
+
+
+.download-png {
+    @extend .listthumb;
+    -webkit-mask-image: url('../images/sprites/download.png');
+}
+// --- Font sizes ---
+.font50 {
+    font-size: 50%;
+}
+
+.font60 {
+    font-size: 60%;
+}
+
+.font70 {
+    font-size: 70%;
+}
+
+.font80 {
+    font-size: 80%;
+}
+
+.font90 {
+    font-size: 90%;
+}
+
+.font110 {
+    font-size: 110%;
+}
+
+.font120 {
+    font-size: 120%;
+}
+// --- Widths ---
+.width20 {
+    width: 20%;
+}
+
+.width40 {
+    width: 40%;
+}
+
+.width70 {
+    width: 70%;
+}
+
+.width100 {
+    width: 100%;
+}
+// Data Classes
+.field-body {
+    font-size: 150%;
+    border: 1px solid darken($list-bg-color, 50%);
+    border-radius: 0.3em;
+    background-color: lighten($list-bg-color, 50%);
+    margin: 0.3em;
+    padding: 0.3em;
+}
+
+.reset {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    border-top-color: none;
+    color: black;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+
+    .x-button-icon {
+        font-size: 75%;
+    }
+}
+
+$toolbar-base-color: false !default;
+
+@if not $toolbar-base-color {
+    $toolbar-base-color: $base-color;
+}
+
+.cartsummary {
+    background: -webkit-linear-gradient(top, $page-bg-color, $toolbar-base-color);
+}
+
+.infosheet > .x-inner {
+    background-image: url('../images/sprites/infosheet.png');
+    background-repeat: no-repeat;
+    background-position: 50% .1em;
+    background-size: 2em .7em;
+    padding-top: .3em;
+    border-top: 1px solid #999;
+}
+
+.cartinfo {
+    padding: .4em;
+}
+
+.x-toolbar-dark {
+    background-image: none;
+    background-color: $page-bg-color;
+    border-bottom: none;
+}
+
+.x-toolbar-dark.x-docked-top, .x-toolbar-dark.x-docked-bottom {
+    border: none;
+    min-height: 3em;
+}
+
+.x-toolbar-dark.x-docked-top {
+    background: linear-gradient(to bottom, $active-color 93%, #999 94%, #FFF);
+}
+
+.x-toolbar-dark.x-docked-bottom {
+    background: none;
+}
+
+.x-toolbar-dark .x-title {
+    color: #eee;
+    text-shadow: none;
+}
+
+.x-msgbox .x-title {
+    color: #333;
+    text-shadow: none;
+}
+
+.x-msgbox, .x-form.x-floating {
+    margin: .5em;
+    border: 0.15em solid $active-color;
+    box-shadow: rgba(0,0,0,0.4) 0 0.1em 0.5em;
+    border-radius: 0.3em;
+    background-color: #fff;
+}
+
+.x-msgbox-dark .x-msgbox-text {
+    color: #333;
+    text-shadow: none;
+}
+
+.x-msgbox .x-toolbar-dark.x-docked-top, .x-msgbox .x-toolbar-dark.x-docked-bottom {
+    background: none;
+}
+
+.x-msgbox .x-field {
+    border: 1px solid #ccc;
+}
+
+.OnActionNextToggle span {
+    color: #fff;
+    padding-top: 4px;
+    display: block;
+}
+
+.x-button, .indexsave {
+    border: none !important;
+    background-image: none !important;
+    box-shadow: 0px 3px 6px #333;
+    border-radius: 0 !important;
+}
+
+.indexsave {
+    background-color: $active-color;
+    color: #eee;
+}
+
+.x-button-normal.x-button.x-iconalign-left.x-layout-box-item.x-flexed.x-stretched {
+    margin: 0 1em 0 1em;
+}
+
+.x-toolbar-dark.x-docked-top .x-button, .x-list-inner .x-button {
+    box-shadow: none;
+}
+
+.rightborder {
+    border-right: 1px solid $active-color;
+}
+
+.x-list-item .x-button-icon {
+    color: $active-color;
+}
+
+.x-list-item-first {
+    border-top: none !important;
+}
+
+.x-list-item.x-item-selected .x-button-icon {
+    //color: #fff;
+}
+
+.x-toolbar-dark.x-docked-bottom .x-button {
+}
+
+.x-toolbar-dark .x-button.x-button-back:before, .x-toolbar-dark .x-button.x-button-forward:before, .x-toolbar .x-toolbar-dark .x-button.x-button-back:before, .x-toolbar .x-toolbar-dark .x-button.x-button-forward:before, .x-toolbar-dark .x-field-select .x-component-outer.x-button-back:before, .x-toolbar-dark .x-field-select .x-component-outer.x-button-forward:before, .x-toolbar .x-toolbar-dark .x-field-select .x-component-outer.x-button-back:before, .x-toolbar .x-toolbar-dark .x-field-select .x-component-outer.x-button-forward:before {
+    background: #fff !important;
+}
+
+.x-button.x-button-action.x-button-back:before, .x-button.x-button-action.x-button-forward:before, .x-toolbar .x-button.x-button-action.x-button-back:before, .x-toolbar .x-button.x-button-action.x-button-forward:before, .x-button.x-button-action-round.x-button-back:before, .x-button.x-button-action-round.x-button-forward:before, .x-toolbar .x-button.x-button-action-round.x-button-back:before, .x-toolbar .x-button.x-button-action-round.x-button-forward:before, .x-button.x-button-action-small.x-button-back:before, .x-button.x-button-action-small.x-button-forward:before, .x-toolbar .x-button.x-button-action-small.x-button-back:before, .x-toolbar .x-button.x-button-action-small.x-button-forward:before {
+    background: #fff !important;
+}
+
+.x-field-input {
+    background-color: #fff;
+}
+
+.x-tabbar.x-docked-bottom {
+    height: 4.1em;
+}
+
+.x-tabbar.x-docked-bottom .x-toolbar .x-button {
+    height: 3.4em;
+}
+
+.clientbackground {
+    background-image: $watermark-image;
+    background-size: auto 60% !important;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+.x-img.x-img-image img {
+    height: auto;
+    -webkit-touch-callout: default;
+    -webkit-user-select: auto;
+}
+
+.x-mask {
+    .x-mask-inner {
+        -webkit-border-radius: 0.3em;
+    }
+
+    .x-mask-message {
+        color: #fff;
+    }
+}
+
+.form-picker {
+    border: 2px solid black;
+    border-radius: 0.4em;
+
+    .x-scroll-container {
+        background-color: #fff;
+    }
+}
+
+.x-list-normal .x-list-header {
+    background-image: none;
+    background-color: $page-bg-color;
+    color: $active-color;
+    text-shadow: none;
+    border-bottom: none;
+    font-weight: bold;
+    font-size: .8em;
+    padding: 0.2em .7em;
+}
+
+.x-list-normal .x-list-item.x-item-selected.x-list-item-tpl, .x-list-normal .x-list-item.x-item-selected .x-dock-horizontal {
+    border-top-color: #e6e6e6 !important;
+}
+
+.x-list .x-list-item.x-item-selected .x-dock-horizontal, .x-list .x-list-item.x-item-selected.x-list-item-tpl {
+    background-image: none;
+    background-color: $page-bg-color;
+    color: $answered-color;
+
+    .listthumb {
+        background-color: $answered-color;
+    }
+}
+
+.mapLabel {
+    color: #000;
+    font-size: 13px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.mapLabelBlock {
+    @extend .mapLabel;
+    width: 64px;
+    height: 26px;
+    padding: 8px;
+    border-radius: 0em;
+    border: .5em solid black;
+}
+
+.mapLabelPin {
+    @extend .mapLabel;
+    width: 32px;
+    height: 32px;
+    padding-top: 8px;
+    border-radius: 2em;
+}
+
+.mapPinSettings {
+    color: $base-color;
+    background-color: lighten($base-color, 50%);
+    border-color: invert($base-color);
+    border-bottom-color: darken($base-color, 50%);
+}
+
+.profilepic {
+    background-image: url('../images/sprites/profile.png');
+    width: 3.5em;
+    height: 3.5em;
+    display: block;
+    background-size: cover;
+}
+
+div.r3 {
+    display: block !important;
+    height: 320px;
+}
+
+body.x-android {
+    overflow-y: hidden;
+}
+
+#ext-viewport > .x-body {
+    position: fixed
+}
+
+.x-form-fieldset-title .x-innerhtml {
+    white-space: normal;
+}
+
+$base-spacing-unit: 18px;
+$half-spacing-unit: $base-spacing-unit / 2;
+
+$color-alpha: #1772FF;
+$color-form-highlight: #EEEEEE;
+
+.table {
+    width: 100%;
+    border: 1px solid $color-form-highlight;
+}
+
+.table-header {
+    display: flex;
+    width: 100%;
+    background: #000;
+    padding: ($half-spacing-unit * 1.5) 0;
+}
+
+.table-row {
+    display: flex;
+    width: 100%;
+    padding: ($half-spacing-unit * 1.5) 0;
+
+    &:nth-of-type(odd) {
+        background: $color-form-highlight;
+    }
+}
+
+.table-data, .header-item {
+    flex: 1 1 20%;
+    text-align: center;
+}
+
+.header-item {
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+* {
+    font-family: $font-family;
+}

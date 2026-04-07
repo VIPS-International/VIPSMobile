@@ -1,0 +1,103 @@
+{
+  "framework": "touch",
+  "name": "VIPSMobile",
+  "namespace": "VIPSMobile",
+  "version": "1.0.0.0",
+
+  "indexHtmlPath": "index.html",
+
+  "production": {
+    "output": {
+      "appCache": {
+        "enable": false,
+        "path": "cache.appcache"
+      }
+    },
+    "loader": {
+      "cache": "${build.timestamp}"
+    },
+    "cache": {
+      "enable": false
+    },
+    "compressor": {
+      "type": "yui",
+      "compression": "advanced" // ADD THIS LINE
+    }
+  },
+
+  "cache": {
+    "enable": false,
+    "deltas": true
+  },
+
+  "url": null,
+
+  "js": [
+    {
+      "path": "touch/sencha-touch.js",
+      "x-bootstrap": true
+    },
+    {
+      "path": "bootstrap.js",
+      "x-bootstrap": true
+    },
+    {
+      "path": "app.js",
+      "bundle": true,
+      "update": "full"
+    }
+  ],
+
+  "css": [
+    {
+      "path": "resources/css/app.css",
+      "update": "full"
+    }
+  ],
+
+  "language": {
+    "js": {
+      "input": "ES6",
+      "output": "ES6"
+    }
+  },
+  "output": {
+    "page": "index.html",
+    "js": {
+      "version": "NEXT"
+    },
+    "appCache": {
+      "enable": false
+    }
+  },
+  "appCache": {
+    "cache": [
+      "index.html"
+    ],
+    "fallback": [],
+    "network": [
+      "*"
+    ]
+  },
+  "resources": [
+    "resources/images",
+    "resources/JavaScript",
+    "resources/icons",
+    "resources/mapPins",
+    "resources/startup",
+    "jswasm",
+    "service-worker.js",
+    "recorderWorker.js",
+    "pwabuilder-sw.js",
+    "progressive-manifest.json",
+    "offline.html"
+  ],
+
+  "ignore": [
+    "\\.svn$"
+  ],
+
+  "archivePath": "archive",
+
+  "id": "0f3c6047-cc90-4d64-83b2-7602316e54bb"
+}

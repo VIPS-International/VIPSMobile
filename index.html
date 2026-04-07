@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html manifest="" lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>VIPS Mobile</title>
+    <script>
+        /*
+        @source: http://secure.vips.com.au/VIPSMobileSource.zip
+
+        @licstart  The following is the entire license notice for the
+        JavaScript code in this page.
+
+        Copyright (C) 2014 VIPS International Pty Ltd
+
+        The JavaScript code in this page is free software: you can
+        redistribute it and/or modify it under the terms of the GNU
+        General Public License (GNU GPL) as published by the Free Software
+        Foundation, either version 3 of the License, or (at your option)
+        any later version.  The code is distributed WITHOUT ANY WARRANTY;
+        without even the implied warranty of MERCHANTABILITY or FITNESS
+        FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+        As additional permission under GNU GPL version 3 section 7, you
+        may distribute non-source (e.g., minimized or compacted) forms of
+        that code without the copy of the GNU GPL normally required by
+        section 4, provided you include this license notice and a URL
+        through which recipients can access the Corresponding Source.
+
+        @licend  The above is the entire license notice
+        for the JavaScript code in this page.
+        */
+    </script>
+    <script src="jswasm/sqlite3.js"></script>
+    <script src="jswasm/sqlite3-worker1-promiser.js"></script>
+    <link href="resources/fontawesome/css/all.min.css" rel="stylesheet" />
+    <style type="text/css">
+        /**
+         * Example of an initial loading indicator.
+         * It is recommended to keep this as minimal as possible to provide instant feedback
+         * while other resources are still being loaded for the first time
+         */
+        html, body {
+            height: 100%;
+            background-color: #FFFFFF;
+            overflow: hidden;
+        }
+
+        #appLoadingIndicator {
+            position: absolute;
+            top: 50%;
+            margin-top: -15px;
+            text-align: center;
+            width: 100%;
+            height: 30px;
+        }
+
+            #appLoadingIndicator .dot {
+                background-color: #1985D0;
+                display: inline-block;
+                height: 30px;
+                -webkit-border-radius: 15px;
+                margin: 0 5px;
+                width: 30px;
+                opacity: 0.8;
+                -webkit-animation-name: appLoadingIndicator;
+                -webkit-animation-duration: 0.5s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-direction: linear;
+            }
+
+            #appLoadingIndicator .Loading {
+                width: 60%;
+                margin: auto;
+                -webkit-animation-name: appLoading;
+                -webkit-animation-duration: 60s;
+                -webkit-animation-iteration-count: 1;
+                -webkit-animation-direction: linear;
+            }
+
+        @-webkit-keyframes appLoading {
+            0% {
+                opacity: 0;
+            }
+
+            90% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes appLoadingIndicator {
+            0% {
+                opacity: 0.8
+            }
+
+            50% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0.8
+            }
+        }
+
+        div.r3 {
+            display: block !important;
+            height: 320px;
+        }
+    </style>
+    <script src="Scripts/chart.min.js"></script>
+    <script src="Scripts/chartjs-plugin-datalabels@2.js"></script>
+    <script>
+        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+            key: "AIzaSyCpP749MU_l3ulP2GChtEhJDl2WM69Soas",
+            v: "weekly",
+            // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+            // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+    <script type="text/javascript">
+        window.onerror = function (event, filename, lineno) {
+            document.write(event);
+        }
+
+        window.document.addEventListener(
+            'touchmove',
+            function (e) {
+                if (e.target.tagName !== "TEXTAREA") {
+                    e.preventDefault();
+                }
+            }, { passive: false }
+        );
+
+        if (!navigator.mediaDevices) {
+            navigator.mediaDevices = {};
+            navigator.mediaDevices.getUserMedia = navigator.getUserMedia;
+        }
+    </script>
+    <!-- place this in a head section -->
+    <link rel="apple-touch-icon" href="resources/icons/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="resources/icons/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/icons/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="resources/icons/touch-icon-ipad-retina.png">
+    <!-- The line below must be kept intact for Sencha Command to build your application -->
+    <script id="microloader" type="text/javascript" src=".sencha/app/microloader/development.js"></script>
+    <script src="services/Scripts/jquery-3.5.1.js"></script>
+    <script src="services/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="resources/JavaScript/linkify.min.js"></script>
+    <script src="resources/JavaScript/linkify-string.min.js"></script>
+    <script src="services/signalr/hubs"></script>
+    <link rel="manifest" href="services/manifest.json" />
+    <meta name="theme-color" content="#054059" />
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3E2KPB330G" credentialless></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-3E2KPB330G');
+</script>
+<body>
+    <div id="appLoadingIndicator" style="top:auto !important"> <div class="Loading"> Contact us if you are having issues <br /> 1300 788 801 </div> <div class="dot"></div> <div class="dot"></div> <div class="dot"></div> <br /> <a href="https://secure.vips.com.au/">help</a> </div>
+    <!-- hack so external links work // -->
+    <a href="" target="_blank" id="hidden_link" style="display: none;"></a>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js').then(function () {
+                console.log("Service Worker Registered");
+            });
+        }
+    </script>
+    <div id="output"> </div>
+
+</body>
+</html>
